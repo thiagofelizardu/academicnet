@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "772dfc2b-4b90-4b78-86af-f5e9d81f2834",
+		"name": "Alunos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26168747"
+	},
+	"item": [
+		{
+			"name": "Get Alunos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Alunos pela matricula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verificar os dados recebidos\", () => {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"    const alunojson = pm.response.json();\r",
+							"    pm.expect(alunojson.matricula).to.equal(123);\r",
+							"    pm.expect(alunojson.email).to.equal(\"thiago@.com\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir Aluno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"matricula\": 123,\r\n    \"nome\" : \"Thiago\",\r\n    \"telefone\": \"123\",\r\n    \"email\": \"thiago@.com\",\r\n    \"dataCadastro\": \"2023-03-03T14:40:00.0Z\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir Outro Aluno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"matricula\": 12313,\r\n    \"nome\" : \"fa\",\r\n    \"telefone\": \"1222233\",\r\n    \"email\": \"fa@.com\",\r\n    \"dataCadastro\": \"2023-03-03T12:40:00.0Z\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar  Aluno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"matricula\": 12313,\r\n    \"nome\" : \"Jose dale\",\r\n    \"telefone\": \"123-321\",\r\n    \"email\": \"Jose123@.com\",\r\n    \"dataCadastro\": \"2023-03-03T12:40:00.0Z\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del Aluno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos/12313",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos",
+						"12313"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
