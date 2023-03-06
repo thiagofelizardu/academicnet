@@ -13,7 +13,7 @@ import java.time.Instant;
 @NoArgsConstructor//cria a classe com o contrutor padrao sem agrs
 public class Aluno {
 
-    @Id //vai usar a matricula como ID
+    @Id//vai usar a matricula como ID
     private Long matricula;
 
     private String nome;
